@@ -101,7 +101,6 @@
                                               NSLog(@"------------------%@", jsonDic);
                                               OrderModel *orderModel = [[OrderModel alloc] init];
                                               _partlistArr = [orderModel assignModelWithDict:jsonDic];
-                                              NSLog(@"zzzzzzzzzzz%@",_partlistArr);
                                               [_orderTableView reloadData];
                                               [SVProgressHUD showSuccessWithStatus:  k_Success_Load];
                                               
@@ -183,11 +182,29 @@
     [payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     //[button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //等待商家确认状态
+    UILabel *storeOK = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 90, 15)];
+    [storeOK setBackgroundColor:[UIColor clearColor]];
+    [storeOK setText:@"等待商家确认"];
+    [storeOK setTextColor:[UIColor redColor]];
+    [storeOK setFont:[UIFont systemFontOfSize:12]];
+    
+    //等待修理厂确认状态
+    UILabel *garageOK = [[UILabel alloc] initWithFrame:CGRectMake(storeOK.frame.origin.x
+                                                                  , storeOK.frame.size.height+storeOK.frame.origin.y+1, 90, 15)];
+    [garageOK setBackgroundColor:[UIColor clearColor]];
+    [garageOK setText:@"等待修理厂确认"];
+    [garageOK setTextColor:[UIColor redColor]];
+    [garageOK setFont:[UIFont systemFontOfSize:12]];
+    
     //根据返回的state调整UI
     NSString *state = [NSString stringWithFormat:@"%@",OM.State];
+    NSString *garageState = [NSString stringWithFormat:@"%@",OM.GarageState];
     if ([state isEqualToString:@"0"]) {
         [footerView addSubview:cancelButton];
-    }
+        [footerView addSubview:storeOK];
+}
     else if ([state isEqualToString:@"1"]){
         [footerView addSubview:cancelButton];
         [footerView addSubview:payButton];
@@ -198,21 +215,12 @@
     }
     else if ([state isEqualToString:@"4"]){
     }
-    //等待商家确认状态
-    UILabel *storeOK = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 90, 15)];
-    [storeOK setBackgroundColor:[UIColor clearColor]];
-    [storeOK setText:@"等待商家确认"];
-    [storeOK setTextColor:[UIColor redColor]];
-    [storeOK setFont:[UIFont systemFontOfSize:12]];
-    [footerView addSubview:storeOK];
-    //等待修理厂确认状态
-    UILabel *garageOK = [[UILabel alloc] initWithFrame:CGRectMake(storeOK.frame.origin.x
-                                                                  , storeOK.frame.size.height+storeOK.frame.origin.y+1, 90, 15)];
-    [garageOK setBackgroundColor:[UIColor clearColor]];
-    [garageOK setText:@"等待修理厂确认"];
-    [garageOK setTextColor:[UIColor redColor]];
-    [garageOK setFont:[UIFont systemFontOfSize:12]];
-    [footerView addSubview:garageOK];
+    //根据修理厂的状态调整UI
+    if ([garageState isEqualToString:@"0"]) {
+        [footerView addSubview:garageOK];
+    }
+
+    
     //价格Label
     UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-65, cancelButton.frame.origin.y-25, 50, 15)];
     [price setBackgroundColor:[UIColor clearColor]];

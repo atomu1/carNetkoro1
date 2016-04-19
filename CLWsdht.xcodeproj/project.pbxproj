@@ -17,6 +17,11 @@
 		987D78B61C9CF847005A0A2C /* UsrStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987D78B41C9CF847005A0A2C /* UsrStoreTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		987D78BA1C9CF98D005A0A2C /* UserStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 987D78B91C9CF98D005A0A2C /* UserStoreModel.m */; settings = {ASSET_TAGS = (); }; };
 		989626951CA3DB6B00B6F9EB /* per_yrz.png in Resources */ = {isa = PBXBuildFile; fileRef = 989626941CA3DB6B00B6F9EB /* per_yrz.png */; settings = {ASSET_TAGS = (); }; };
+		98A335881CC4746200126016 /* TardeCancelOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A335861CC4746200126016 /* TardeCancelOrderViewController.m */; settings = {ASSET_TAGS = (); }; };
+		98A335891CC4746200126016 /* TardeCancelOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A335871CC4746200126016 /* TardeCancelOrderViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		98A3358D1CC477E400126016 /* ReturnGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A3358B1CC477E400126016 /* ReturnGoodsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		98A3358E1CC477E400126016 /* ReturnGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A3358C1CC477E400126016 /* ReturnGoodsViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		98A335911CC4842100126016 /* MaintainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A335901CC4842100126016 /* MaintainModel.m */; settings = {ASSET_TAGS = (); }; };
 		98A3F4561CBDDF980059B739 /* GoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A3F4551CBDDF980059B739 /* GoodModel.m */; settings = {ASSET_TAGS = (); }; };
 		98C025881CBC85940068ABE6 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C025861CBC85940068ABE6 /* OrderTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		98C025891CBC85940068ABE6 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C025871CBC85940068ABE6 /* OrderTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -142,6 +147,14 @@
 		987D78B81C9CF98D005A0A2C /* UserStoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStoreModel.h; sourceTree = "<group>"; };
 		987D78B91C9CF98D005A0A2C /* UserStoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStoreModel.m; sourceTree = "<group>"; };
 		989626941CA3DB6B00B6F9EB /* per_yrz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = per_yrz.png; sourceTree = "<group>"; };
+		98A335851CC4746200126016 /* TardeCancelOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TardeCancelOrderViewController.h; sourceTree = "<group>"; };
+		98A335861CC4746200126016 /* TardeCancelOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TardeCancelOrderViewController.m; sourceTree = "<group>"; };
+		98A335871CC4746200126016 /* TardeCancelOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TardeCancelOrderViewController.xib; path = ../Controller/TardeCancelOrderViewController.xib; sourceTree = "<group>"; };
+		98A3358A1CC477E400126016 /* ReturnGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnGoodsViewController.h; sourceTree = "<group>"; };
+		98A3358B1CC477E400126016 /* ReturnGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnGoodsViewController.m; sourceTree = "<group>"; };
+		98A3358C1CC477E400126016 /* ReturnGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReturnGoodsViewController.xib; path = ../Controller/ReturnGoodsViewController.xib; sourceTree = "<group>"; };
+		98A3358F1CC4842100126016 /* MaintainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintainModel.h; sourceTree = "<group>"; };
+		98A335901CC4842100126016 /* MaintainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintainModel.m; sourceTree = "<group>"; };
 		98A3F4541CBDDF980059B739 /* GoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodModel.h; sourceTree = "<group>"; };
 		98A3F4551CBDDF980059B739 /* GoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodModel.m; sourceTree = "<group>"; };
 		98C025851CBC85940068ABE6 /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
@@ -400,6 +413,8 @@
 				98C025911CBCC4CF0068ABE6 /* OrderModel.m */,
 				98A3F4541CBDDF980059B739 /* GoodModel.h */,
 				98A3F4551CBDDF980059B739 /* GoodModel.m */,
+				98A3358F1CC4842100126016 /* MaintainModel.h */,
+				98A335901CC4842100126016 /* MaintainModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -937,6 +952,10 @@
 				98C025861CBC85940068ABE6 /* OrderTableViewCell.m */,
 				98C0258A1CBC87F80068ABE6 /* MaintainOrderViewController.h */,
 				98C0258B1CBC87F80068ABE6 /* MaintainOrderViewController.m */,
+				98A335851CC4746200126016 /* TardeCancelOrderViewController.h */,
+				98A335861CC4746200126016 /* TardeCancelOrderViewController.m */,
+				98A3358A1CC477E400126016 /* ReturnGoodsViewController.h */,
+				98A3358B1CC477E400126016 /* ReturnGoodsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -949,6 +968,8 @@
 				98D7892D1CB7962E003488D8 /* TheOrderViewController.xib */,
 				98C025871CBC85940068ABE6 /* OrderTableViewCell.xib */,
 				98C0258C1CBC87F80068ABE6 /* MaintainOrderViewController.xib */,
+				98A335871CC4746200126016 /* TardeCancelOrderViewController.xib */,
+				98A3358C1CC477E400126016 /* ReturnGoodsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1072,6 +1093,7 @@
 				DF0991951C561F11001B6F2D /* GoodsDetailsViewController.xib in Resources */,
 				DF0991871C55F6B7001B6F2D /* ChoseSparePartsViewController.xib in Resources */,
 				98E8C17B1C49E50800310091 /* LaunchScreen.storyboard in Resources */,
+				98A335891CC4746200126016 /* TardeCancelOrderViewController.xib in Resources */,
 				98C025891CBC85940068ABE6 /* OrderTableViewCell.xib in Resources */,
 				DF0991CB1C585634001B6F2D /* Assets.xcassets in Resources */,
 				98F7EEFE1CBB36B30084AA74 /* MyNeed.storyboard in Resources */,
@@ -1086,6 +1108,7 @@
 				DF0991D51C5B3223001B6F2D /* ChosePlaceViewController.xib in Resources */,
 				98E8C1C51C49E5EB00310091 /* Login.storyboard in Resources */,
 				98E8C1BA1C49E5EB00310091 /* LaunchScreen.storyboard in Resources */,
+				98A3358E1CC477E400126016 /* ReturnGoodsViewController.xib in Resources */,
 				DF0991DA1C5B44AC001B6F2D /* repairCarStoreViewController.xib in Resources */,
 				987D78B61C9CF847005A0A2C /* UsrStoreTableViewCell.xib in Resources */,
 				98E8C1B81C49E5EB00310091 /* address_list.json in Resources */,
@@ -1185,6 +1208,7 @@
 				C9A0D73E1C4A4B890028EEB8 /* MyShopCarAccessoryColorInfo.m in Sources */,
 				C9622DC91C4B40E700AE849E /* ZLPhotoPickerCollectionView.m in Sources */,
 				C9622DC01C4B40E700AE849E /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
+				98A335911CC4842100126016 /* MaintainModel.m in Sources */,
 				98E8C1F21C49E60900310091 /* GTMBase64.m in Sources */,
 				C9622DC21C4B40E700AE849E /* ZLPhotoAssets.m in Sources */,
 				C9622DC81C4B40E700AE849E /* ZLPhotoPickerViewController.m in Sources */,
@@ -1208,6 +1232,7 @@
 				C9622DB71C4B40E700AE849E /* ZLCameraImageView.m in Sources */,
 				C9622DCD1C4B40E700AE849E /* ZLPhotoPickerImageView.m in Sources */,
 				98E8C1F51C49E60900310091 /* NS+Base64.m in Sources */,
+				98A3358D1CC477E400126016 /* ReturnGoodsViewController.m in Sources */,
 				98E8C1C41C49E5EB00310091 /* ZHQUtil.m in Sources */,
 				C9622DC61C4B40E700AE849E /* ZLPhotoPickerAssetsViewController.m in Sources */,
 				987D78BA1C9CF98D005A0A2C /* UserStoreModel.m in Sources */,
@@ -1237,6 +1262,7 @@
 				987D78B51C9CF847005A0A2C /* UsrStoreTableViewCell.m in Sources */,
 				C9622DB51C4B40E700AE849E /* UIView+ZLExtension.m in Sources */,
 				C9622D051C4B35B100AE849E /* MyShopPhotoCell.m in Sources */,
+				98A335881CC4746200126016 /* TardeCancelOrderViewController.m in Sources */,
 				C9622DD51C4B40EE00AE849E /* DALabeledCircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

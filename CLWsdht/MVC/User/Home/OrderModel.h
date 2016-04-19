@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *PartsMobile;//来源
 @property (nonatomic, copy) NSString *StoreId;
 @property (nonatomic, copy) NSString *State;
+@property (nonatomic, copy) NSString *GarageState;
 @property (nonatomic, strong) NSArray *PartsList;
 
 @property (nonatomic, strong) GoodModel *goodmodel;

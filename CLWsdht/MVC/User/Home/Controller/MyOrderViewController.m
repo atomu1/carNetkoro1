@@ -9,6 +9,8 @@
 #import "MyOrderViewController.h"
 #import "TheOrderViewController.h"
 #import "MaintainOrderViewController.h"
+#import "TardeCancelOrderViewController.h"
+#import "ReturnGoodsViewController.h"
 
 @interface MyOrderViewController ()
 //维修订单
@@ -86,7 +88,7 @@
 - (IBAction)payBtn:(UIButton *)sender {
     [self setHidesBottomBarWhenPushed:YES];
     MaintainOrderViewController *mainOrderVC = [[MaintainOrderViewController alloc] init];
-    _mainState = @"1";
+    _mainState = @"2";
     mainOrderVC.orderState = _mainState;
     [self.navigationController pushViewController:mainOrderVC animated:YES];
 }
@@ -94,7 +96,7 @@
 - (IBAction)judgeBtn:(UIButton *)sender {
     [self setHidesBottomBarWhenPushed:YES];
     MaintainOrderViewController *mainOrderVC = [[MaintainOrderViewController alloc] init];
-    _mainState = @"2";
+    _mainState = @"3";
     mainOrderVC.orderState = _mainState;
     [self.navigationController pushViewController:mainOrderVC animated:YES];
 }
@@ -103,7 +105,7 @@
 - (IBAction)tardeBtn:(UIButton *)sender {
     [self setHidesBottomBarWhenPushed:YES];
     MaintainOrderViewController *mainOrderVC = [[MaintainOrderViewController alloc] init];
-    _mainState = @"3";
+    _mainState = @"100";
     mainOrderVC.orderState = _mainState;
     [self.navigationController pushViewController:mainOrderVC animated:YES];
 }
@@ -112,7 +114,7 @@
 - (IBAction)cancelBtn:(UIButton *)sender {
     [self setHidesBottomBarWhenPushed:YES];
     MaintainOrderViewController *mainOrderVC = [[MaintainOrderViewController alloc] init];
-    _mainState = @"4";
+    _mainState = @"-1";
     mainOrderVC.orderState = _mainState;
     [self.navigationController pushViewController:mainOrderVC animated:YES];
 }
@@ -165,14 +167,29 @@
 
 //已交易
 - (IBAction)tardeBuy:(UIButton *)sender {
+    [self setHidesBottomBarWhenPushed:YES];
+    TardeCancelOrderViewController *targeCancelOrder = [[TardeCancelOrderViewController alloc] init];
+    _state = @"100";
+    targeCancelOrder.orderState = _state;
+    [self.navigationController pushViewController:targeCancelOrder animated:YES];
 }
 
 //已取消
 - (IBAction)cancelBuy:(UIButton *)sender {
+    [self setHidesBottomBarWhenPushed:YES];
+    TardeCancelOrderViewController *targeCancelOrder = [[TardeCancelOrderViewController alloc] init];
+    _state = @"-1";
+    targeCancelOrder.orderState = _state;
+    [self.navigationController pushViewController:targeCancelOrder animated:YES];
 }
 
 //退货申请
 - (IBAction)returnBuy:(UIButton *)sender {
+    [self setHidesBottomBarWhenPushed:YES];
+    ReturnGoodsViewController *returnGoods = [[ReturnGoodsViewController alloc] init];
+    _state = @"5";
+    returnGoods.orderState = _state;
+    [self.navigationController pushViewController:returnGoods animated:YES];
 }
 
 /*

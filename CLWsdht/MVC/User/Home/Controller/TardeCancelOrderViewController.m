@@ -1,41 +1,38 @@
 //
-//  MaintainOrderViewController.m
+//  TardeCancelOrderViewController.m
 //  CLWsdht
 //
-//  Created by koroysta1 on 16/4/12.
+//  Created by koroysta1 on 16/4/18.
 //  Copyright © 2016年 时代宏图. All rights reserved.
 //
 
-#import "MaintainOrderViewController.h"
+#import "TardeCancelOrderViewController.h"
 #import "AFNetworking.h"//主要用于网络请求方法
 #import "UIKit+AFNetworking.h"//里面有异步加载图片的方法
 #import "MJExtension.h"
 #import "OrderTableViewCell.h"
 #import "BaseHeader.h"
-#import "MaintainModel.h"
+#import "OrderModel.h"
+#import "MyOrderViewController.h"
 
-@interface MaintainOrderViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface TardeCancelOrderViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *orderTableView;
 @property (nonatomic, strong) NSMutableArray *partlistArr;
 
 @end
 
-@implementation MaintainOrderViewController
+@implementation TardeCancelOrderViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationItem setTitle:@"我的维修订单"];
+    [self.navigationItem setTitle:@"我的配件订单"];
     _partlistArr = [[NSMutableArray alloc] initWithCapacity:0];
     [self GetOrderListByNetwork];
     [self setUpView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+//UI界面
 -(void)setUpView{
     _orderTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 104, SCREEN_WIDTH, SCREEN_HEIGHT-104) style:UITableViewStyleGrouped];
     _orderTableView.delegate=self;
@@ -44,39 +41,25 @@
     [self.view addSubview:_orderTableView];
 }
 
-//待确认
-- (IBAction)confirmBtn:(UIButton *)sender {
-    _orderState = @"0";
-    [self GetOrderListByNetwork];
-}
-//待付款
-- (IBAction)payBtn:(UIButton *)sender {
-    _orderState = @"2";
-    [self GetOrderListByNetwork];
-}
-//待评价
-- (IBAction)dispatchBtn:(UIButton *)sender {
-    _orderState = @"3";
-    [self GetOrderListByNetwork];
-}
-//已交易
-- (IBAction)receiveBtn:(UIButton *)sender {
+
+//已交易按钮
+- (IBAction)tardeBtn:(UIButton *)sender {
     _orderState = @"100";
     [self GetOrderListByNetwork];
 }
-//已取消
-- (IBAction)judgeBtn:(UIButton *)sender {
+//已取消按钮
+- (IBAction)cancelBtn:(UIButton *)sender {
     _orderState = @"-1";
     [self GetOrderListByNetwork];
 }
-
 
 //获取我的订单
 - (void)GetOrderListByNetwork{
     [SVProgressHUD showWithStatus:k_Status_Load];
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"Usr.asmx/GetGarageOrdersList"];
-    NSDictionary *paramDict = @{                                @"state":_orderState,
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"Usr.asmx/GetOrdersList"];
+    NSDictionary *paramDict = @{
+                                @"state":_orderState,
                                 @"usrId":@"a188c6fa-c962-4379-8910-da7d0c2fa9ca",
                                 @"garageId":@"",
                                 @"storeId":@"",
@@ -100,8 +83,9 @@
                                           if (jsonDic[@"Success"]) {
                                               //成功
                                               NSLog(@"------------------%@", jsonDic);
-                                              MaintainModel *maintainModel = [[MaintainModel alloc] init];
-                                              _partlistArr = [maintainModel maintainModelWithDict:jsonDic];
+                                              OrderModel *orderModel = [[OrderModel alloc] init];
+                                              _partlistArr = [orderModel assignModelWithDict:jsonDic];
+                                              NSLog(@"zzzzzzzzzzz%@",_partlistArr);
                                               [_orderTableView reloadData];
                                               [SVProgressHUD showSuccessWithStatus:  k_Success_Load];
                                               
@@ -131,30 +115,13 @@
 }
 /*设置标题尾的宽度*/
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    //根据当前页面的state设置按钮的显示和隐藏
-    int i = 0;
-    if ([_orderState isEqualToString:@"2"]) {
-        i = 140;
-    }
-    else if ([_orderState isEqualToString:@"3"]){
-        i = 140;
-    }
-    else if ([_orderState isEqualToString:@"0"]){
-        i = 110;
-    }
-    else if ([_orderState isEqualToString:@"-1"]){
-        i = 110;
-    }
-    else if ([_orderState isEqualToString:@"100"]){
-        i = 110;
-    }
-    return i;
+    return 80;
 }
 //设置cell头的UI
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    MaintainModel *MM = [[MaintainModel alloc] init];
-    MM = _partlistArr[section];
+    OrderModel *OM = [[OrderModel alloc] init];
+    OM = _partlistArr[section];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
     [headerView setBackgroundColor:[UIColor whiteColor]];
@@ -165,7 +132,7 @@
     //店铺名字
     UILabel *storeName = [[UILabel alloc] initWithFrame:CGRectMake(storeImg.frame.origin.x+storeImg.frame.size.width+5, storeImg.frame.origin.y, 100, 20)];
     [storeName setBackgroundColor:[UIColor clearColor]];
-    [storeName setText:MM.GarageName];
+    [storeName setText:OM.StoreName];
     [storeName setTextColor:[UIColor blackColor]];
     [storeName setFont:[UIFont systemFontOfSize:14]];
     [headerView addSubview:storeName];
@@ -178,81 +145,63 @@
 }
 //设置cell尾的UI
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 140)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
     [footerView setBackgroundColor:[UIColor whiteColor]];
     
-    MaintainModel *MM = [[MaintainModel alloc] init];
-    MM = _partlistArr[section];
+    OrderModel *OM = [[OrderModel alloc] init];
+    OM = _partlistArr[section];
     
+    //取消按钮
+    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(footerView.frame.size.width-80, footerView.frame.size.height-35, 65, 30)];
+    [cancelButton setBackgroundColor:[UIColor redColor]];
+    [cancelButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    //[button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
     //支付按钮
-    UIButton *payButton = [[UIButton alloc] initWithFrame:CGRectMake(footerView.frame.size.width-80, footerView.frame.size.height-35, 65, 30)];
+    UIButton *payButton = [[UIButton alloc] initWithFrame:CGRectMake(cancelButton.frame.origin.x-70, cancelButton.frame.origin.y, 65, 30)];
     [payButton setBackgroundColor:[UIColor redColor]];
     [payButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [payButton setTitle:@"支付" forState:UIControlStateNormal];
     [payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     //[button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
-    //评价按钮
-    UIButton *judgeBtn = [[UIButton alloc] initWithFrame:CGRectMake(footerView.frame.size.width-80, footerView.frame.size.height-35, 65, 30)];
-    [judgeBtn setBackgroundColor:[UIColor redColor]];
-    [judgeBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [judgeBtn setTitle:@"评价" forState:UIControlStateNormal];
-    [judgeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [judgeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    //[button addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //根据当前页面的state设置按钮的显示和隐藏
-    if ([_orderState isEqualToString:@"2"]) {
-        [footerView addSubview:payButton];
-    }else if ([_orderState isEqualToString:@"3"]){
-        [footerView addSubview:judgeBtn];
+    //根据返回的state调整UI
+    NSString *state = [NSString stringWithFormat:@"%@",OM.State];
+    if ([state isEqualToString:@"0"]) {
+        [footerView addSubview:cancelButton];
     }
-    
-    //品牌车型
-    UILabel *carBrand = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 60, 15)];
-    [carBrand setBackgroundColor:[UIColor cyanColor]];
-    [carBrand setText:@"品牌车型"];
-    [carBrand setTextColor:[UIColor lightGrayColor]];
-    [carBrand setTextAlignment:NSTextAlignmentCenter];
-    [carBrand setFont:[UIFont systemFontOfSize:13]];
-    [footerView addSubview:carBrand];
-    //品牌车型CarBrandName
-    UILabel *carBrandName = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-95, carBrand.frame.origin.y, 80, 15)];
-    [carBrandName setBackgroundColor:[UIColor clearColor]];
-    [carBrandName setText:MM.CarBrandName];
-    [carBrandName setTextAlignment:NSTextAlignmentCenter];
-    [carBrandName setTextColor:[UIColor lightGrayColor]];
-    [carBrandName setFont:[UIFont systemFontOfSize:13]];
-    [footerView addSubview:carBrandName];
-    //分割线
-    UILabel *carveCar = [[UILabel alloc] initWithFrame:CGRectMake(0, carBrand.frame.origin.y+carBrand.frame.size.height+6, SCREEN_WIDTH, 0.5)];
-    [carveCar setBackgroundColor:[UIColor lightGrayColor]];
-    [footerView addSubview:carveCar];
-
-    //价格车辆问题描述
-    UILabel *carMessage = [[UILabel alloc] initWithFrame:CGRectMake(carBrand.frame.origin.x, carveCar.frame.origin.y+carveCar.frame.size.height+3, 90, 15)];
-    [carMessage setBackgroundColor:[UIColor clearColor]];
-    [carMessage setText:@"车辆问题描述"];
-    [carMessage setTextColor:[UIColor lightGrayColor]];
-    [carMessage setFont:[UIFont systemFontOfSize:13]];
-    [footerView addSubview:carMessage];
-    //车辆问题描述Message
-    UILabel *message = [[UILabel alloc] initWithFrame:CGRectMake(carMessage.frame.origin.x, carMessage.frame.origin.y+carMessage.frame.size.height+3, SCREEN_WIDTH-20, 15)];
-    [message setBackgroundColor:[UIColor clearColor]];
-    [message setText:MM.Message];
-    [message setTextAlignment:NSTextAlignmentCenter];
-    [message setTextColor:[UIColor redColor]];
-    [message setFont:[UIFont systemFontOfSize:13]];
-    [footerView addSubview:message];
-    //分割线
-    UILabel *carveMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, message.frame.origin.y+message.frame.size.height+6, SCREEN_WIDTH, 0.5)];
-    [carveMessage setBackgroundColor:[UIColor lightGrayColor]];
-    [footerView addSubview:carveMessage];
-    
+    else if ([state isEqualToString:@"1"]){
+        [footerView addSubview:cancelButton];
+        [footerView addSubview:payButton];
+    }
+    else if ([state isEqualToString:@"2"]){
+    }
+    else if ([state isEqualToString:@"3"]){
+    }
+    else if ([state isEqualToString:@"4"]){
+    }
+    //等待商家确认状态
+    UILabel *storeOK = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 90, 15)];
+    [storeOK setBackgroundColor:[UIColor clearColor]];
+    [storeOK setText:@"等待商家确认"];
+    [storeOK setTextColor:[UIColor redColor]];
+    [storeOK setFont:[UIFont systemFontOfSize:12]];
+    [footerView addSubview:storeOK];
+    //等待修理厂确认状态
+    UILabel *garageOK = [[UILabel alloc] initWithFrame:CGRectMake(storeOK.frame.origin.x
+                                                                  , storeOK.frame.size.height+storeOK.frame.origin.y+1, 90, 15)];
+    [garageOK setBackgroundColor:[UIColor clearColor]];
+    [garageOK setText:@"等待修理厂确认"];
+    [garageOK setTextColor:[UIColor redColor]];
+    [garageOK setFont:[UIFont systemFontOfSize:12]];
+    [footerView addSubview:garageOK];
     //价格Label
-    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-65, carveMessage.frame.origin.y+carveMessage.frame.size.height+8, 50, 15)];
+    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-65, cancelButton.frame.origin.y-25, 50, 15)];
     [price setBackgroundColor:[UIColor clearColor]];
-    [price setText:[NSString stringWithFormat:@"￥%@",MM.GaragePrice]];
+    //[price setText:OM.Price];
+    [price setText:[NSString stringWithFormat:@"￥%@",OM.Price]];
     [price setTextAlignment:NSTextAlignmentCenter];
     [price setTextColor:[UIColor redColor]];
     [price setFont:[UIFont systemFontOfSize:13]];
@@ -268,37 +217,27 @@
     //共计几件商品
     UILabel *manyGood = [[UILabel alloc] initWithFrame:CGRectMake(add.frame.origin.x-95, add.frame.origin.y, 90, 15)];
     [manyGood setBackgroundColor:[UIColor clearColor]];
-    [manyGood setText:@"维修费用"];
+    NSArray *many = OM.PartsList;
+    [manyGood setText:[NSString stringWithFormat:@"共计%lu件商品",(unsigned long)many.count]];
     [manyGood setTextAlignment:NSTextAlignmentCenter];
     [manyGood setTextColor:[UIColor lightGrayColor]];
     [manyGood setFont:[UIFont systemFontOfSize:13]];
     [footerView addSubview:manyGood];
-    //修理厂是否确认
-    UILabel *repairState = [[UILabel alloc] initWithFrame:CGRectMake(carveMessage.frame.origin.x, add.frame.origin.y, 90, 15)];
-    [repairState setBackgroundColor:[UIColor clearColor]];
-    [repairState setText:@"修理厂未确认"];
-    [repairState setTextAlignment:NSTextAlignmentCenter];
-    [repairState setTextColor:[UIColor lightGrayColor]];
-    [repairState setFont:[UIFont systemFontOfSize:13]];
-    //根据返回的GarageOrdersState显示维修厂的确认状态
-    NSString *state = [NSString stringWithFormat:@"%@",MM.GarageOrdersState];
-    if ([state isEqualToString:@"0"]) {
-        [repairState setText:@"修理厂未确认"];
-        [footerView addSubview:repairState];
-    }
-    else if ([state isEqualToString:@"1"]){
-        [repairState setText:@"修理厂已确认"];
-        [footerView addSubview:repairState];
-    }
-
+    //分割线
+    //    UILabel *carveF = [[UILabel alloc] initWithFrame:CGRectMake(0, garageOK.frame.origin.y+garageOK.frame.size.height+2, SCREEN_WIDTH, 0.5)];
+    //    [carveF setBackgroundColor:[UIColor lightGrayColor]];
+    //    [footerView addSubview:carveF];
+    UILabel *carveS = [[UILabel alloc] initWithFrame:CGRectMake(0, cancelButton.frame.origin.y+cancelButton.frame.size.height+2, SCREEN_WIDTH, 0.5)];
+    [carveS setBackgroundColor:[UIColor lightGrayColor]];
+    [footerView addSubview:carveS];
     return footerView;
 }
 
 //返回某个section中rows的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    MaintainModel *MM = [[MaintainModel alloc] init];
-    MM = _partlistArr[section];
-    return MM.PartsList.count;
+    OrderModel *OM = [[OrderModel alloc] init];
+    OM = _partlistArr[section];
+    return OM.PartsList.count;
 }
 
 
@@ -310,8 +249,8 @@
     if (cell == nil) {
         cell = [[OrderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:userStoreCellIdentifer];
     }
-    MaintainModel *MM=_partlistArr[indexPath.section];
-    GoodModel *GM=MM.PartsList[indexPath.row];
+    OrderModel *OM=_partlistArr[indexPath.section];
+    GoodModel *GM=OM.PartsList[indexPath.row];
     [cell setOrderWithModel:GM];
     
     return cell;
@@ -335,7 +274,10 @@
 }
 
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 /*
 #pragma mark - Navigation

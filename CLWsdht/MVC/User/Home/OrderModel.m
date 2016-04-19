@@ -23,6 +23,7 @@
         orderModel.StoreName = [dic2 objectForKey:@"StoreName"];
         orderModel.PartsList = [dic2 objectForKey:@"PartsLst"];
         orderModel.State = [dic2 objectForKey:@"State"];
+        orderModel.GarageState = [dic2 objectForKey:@"GarageState"];
         NSMutableArray *subarr = [[NSMutableArray alloc]init];
         /*这个for循环把当前这个订单的商品装到subarr里，最后赋值给	ListModel.PartsList*/
         for (NSDictionary *dic3 in orderModel.PartsList){

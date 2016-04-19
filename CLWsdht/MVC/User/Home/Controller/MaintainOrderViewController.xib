@@ -60,7 +60,7 @@
                             <rect key="frame" x="129" y="64" width="63" height="40"/>
                             <animations/>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="待付款">
+                            <state key="normal" title="待评价">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
