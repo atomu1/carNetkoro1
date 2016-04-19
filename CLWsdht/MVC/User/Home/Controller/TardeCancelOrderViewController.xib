@@ -15,21 +15,27 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Wb-LU-0al">
+                <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wb-LU-0al">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtM-5k-hkJ">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtM-5k-hkJ">
                             <rect key="frame" x="0.0" y="102" width="320" height="2"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="sav-5R-4yn"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ow0-g8-X1b">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ow0-g8-X1b">
                             <rect key="frame" x="160" y="64" width="160" height="40"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="lLd-ou-PdK"/>
+                            </constraints>
                             <state key="normal" title="已取消">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -37,10 +43,13 @@
                                 <action selector="cancelBtn:" destination="-1" eventType="touchUpInside" id="Ghc-1T-FRE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFb-iq-7hu">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFb-iq-7hu">
                             <rect key="frame" x="0.0" y="64" width="158" height="40"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="dsy-wE-b7O"/>
+                            </constraints>
                             <state key="normal" title="已交易">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -51,10 +60,27 @@
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="UtM-5k-hkJ" firstAttribute="top" secondItem="9Wb-LU-0al" secondAttribute="top" constant="102" id="79r-qS-1Ah"/>
+                        <constraint firstAttribute="trailing" secondItem="UtM-5k-hkJ" secondAttribute="trailing" id="EWa-a6-aaI"/>
+                        <constraint firstItem="Ow0-g8-X1b" firstAttribute="leading" secondItem="XFb-iq-7hu" secondAttribute="trailing" constant="2" id="PeY-VI-5Ve"/>
+                        <constraint firstItem="Ow0-g8-X1b" firstAttribute="width" secondItem="XFb-iq-7hu" secondAttribute="width" id="WnY-dF-fSY"/>
+                        <constraint firstAttribute="trailing" secondItem="Ow0-g8-X1b" secondAttribute="trailing" id="lFh-fi-gjk"/>
+                        <constraint firstItem="XFb-iq-7hu" firstAttribute="top" secondItem="9Wb-LU-0al" secondAttribute="top" constant="64" id="m6e-du-WJI"/>
+                        <constraint firstItem="Ow0-g8-X1b" firstAttribute="top" secondItem="9Wb-LU-0al" secondAttribute="top" constant="64" id="qeH-7F-Yyh"/>
+                        <constraint firstItem="UtM-5k-hkJ" firstAttribute="leading" secondItem="9Wb-LU-0al" secondAttribute="leading" id="rlv-8d-lPF"/>
+                        <constraint firstItem="XFb-iq-7hu" firstAttribute="leading" secondItem="9Wb-LU-0al" secondAttribute="leading" id="x57-20-8jx"/>
+                    </constraints>
                 </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9Wb-LU-0al" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0zY-Dz-pv3"/>
+                <constraint firstItem="9Wb-LU-0al" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Glx-dO-Esn"/>
+                <constraint firstAttribute="trailing" secondItem="9Wb-LU-0al" secondAttribute="trailing" id="Ho1-m5-2Ej"/>
+                <constraint firstAttribute="bottom" secondItem="9Wb-LU-0al" secondAttribute="bottom" id="lzj-wm-Bzf"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="218" y="326"/>
         </view>
