@@ -126,7 +126,7 @@ CLLocationManagerDelegate
                         
                         // 原版本号集合中没有这个分类，则一定要更新
                         // 原版本号与新版本号不同，则一定要更新
-                        if (nil == orgVer || [ver isEqualToString:orgVer]) {
+                        if (nil == orgVer || ![ver isEqualToString:orgVer]) {
                             
                             [_toUpdateNameDic setObject:@"" forKey:key];
                         }
