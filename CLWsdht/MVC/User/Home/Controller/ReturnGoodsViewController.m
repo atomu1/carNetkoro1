@@ -14,10 +14,12 @@
 #import "BaseHeader.h"
 #import "OrderModel.h"
 #import "MyOrderViewController.h"
+#import "SingleCase.h"
 
 @interface ReturnGoodsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *orderTableView;
 @property (nonatomic, strong) NSMutableArray *partlistArr;
+@property (nonatomic, copy) NSString *userId;
 
 @end
 
@@ -27,6 +29,9 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"退货申请"];
     _partlistArr = [[NSMutableArray alloc] initWithCapacity:0];
+    SingleCase *singleCase = [SingleCase sharedSingleCase];
+    _userId = singleCase.str;
+
     [self GetOrderListByNetwork];
     [self setUpView];
 }
@@ -47,7 +52,7 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"Usr.asmx/GetOrdersList"];
     NSDictionary *paramDict = @{
                                 @"state":_orderState,
-                                @"usrId":@"a188c6fa-c962-4379-8910-da7d0c2fa9ca",
+                                @"usrId":_userId,
                                 @"garageId":@"",
                                 @"storeId":@"",
                                 @"start":[NSString stringWithFormat:@"%d",0],

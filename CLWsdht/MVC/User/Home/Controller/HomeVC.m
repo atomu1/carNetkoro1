@@ -75,20 +75,20 @@
     userSeletedCityID = ApplicationDelegate.currentCityID;
     [self initRightButtonItemWithCityName:userSeletedCity];
     
-//    if (!ApplicationDelegate.isLogin) {
-//       // 显示登录页面
-//        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-//        LoginViewController *vc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
-//        self.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:NO];
-//        self.hidesBottomBarWhenPushed = NO;
-//    } else {
-//        //加载首页数据信息
-//        
-//        userSeletedCity = ApplicationDelegate.currentCity;
-//        userSeletedCityID = ApplicationDelegate.currentCityID;
-//        [self initRightButtonItemWithCityName:userSeletedCity];
-//    }
+    if (!ApplicationDelegate.isLogin) {
+       // 显示登录页面
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+        LoginViewController *vc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:NO];
+        self.hidesBottomBarWhenPushed = NO;
+    } else {
+        //加载首页数据信息
+        
+        userSeletedCity = ApplicationDelegate.currentCity;
+        userSeletedCityID = ApplicationDelegate.currentCityID;
+        [self initRightButtonItemWithCityName:userSeletedCity];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated

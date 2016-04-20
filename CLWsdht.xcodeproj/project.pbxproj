@@ -29,6 +29,7 @@
 		98C0258E1CBC87F80068ABE6 /* MaintainOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C0258C1CBC87F80068ABE6 /* MaintainOrderViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		98C025921CBCC4CF0068ABE6 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C025911CBCC4CF0068ABE6 /* OrderModel.m */; settings = {ASSET_TAGS = (); }; };
 		98D344BD1CA3C909004486BE /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D344BC1CA3C909004486BE /* NullSafe.m */; settings = {ASSET_TAGS = (); }; };
+		98D478C11CC7217900F09464 /* SingleCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D478C01CC7217900F09464 /* SingleCase.m */; settings = {ASSET_TAGS = (); }; };
 		98D7892E1CB7962E003488D8 /* TheOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7892C1CB7962E003488D8 /* TheOrderViewController.m */; settings = {ASSET_TAGS = (); }; };
 		98D7892F1CB7962E003488D8 /* TheOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7892D1CB7962E003488D8 /* TheOrderViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		98E8C16A1C49E50800310091 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E8C1691C49E50800310091 /* main.m */; };
@@ -166,6 +167,8 @@
 		98C025901CBCC4CF0068ABE6 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
 		98C025911CBCC4CF0068ABE6 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		98D344BC1CA3C909004486BE /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		98D478BF1CC7217900F09464 /* SingleCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCase.h; sourceTree = "<group>"; };
+		98D478C01CC7217900F09464 /* SingleCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCase.m; sourceTree = "<group>"; };
 		98D7892B1CB7962E003488D8 /* TheOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheOrderViewController.h; sourceTree = "<group>"; };
 		98D7892C1CB7962E003488D8 /* TheOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheOrderViewController.m; sourceTree = "<group>"; };
 		98D7892D1CB7962E003488D8 /* TheOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TheOrderViewController.xib; path = ../Controller/TheOrderViewController.xib; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 		98E8C1E01C49E60900310091 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				98D478BF1CC7217900F09464 /* SingleCase.h */,
+				98D478C01CC7217900F09464 /* SingleCase.m */,
 				98E8C1E11C49E60900310091 /* GTMBase64.h */,
 				98E8C1E21C49E60900310091 /* GTMBase64.m */,
 				98E8C1E31C49E60900310091 /* GTMDefines.h */,
@@ -1195,6 +1200,7 @@
 				C9622DB81C4B40E700AE849E /* ZLCameraView.m in Sources */,
 				98E8C1CA1C49E5EB00310091 /* UserVC.m in Sources */,
 				98E8C1F41C49E60900310091 /* MJYUtils.m in Sources */,
+				98D478C11CC7217900F09464 /* SingleCase.m in Sources */,
 				C9622DBE1C4B40E700AE849E /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
 				DF0991DB1C5C5831001B6F2D /* repairCarStoreViewController.m in Sources */,
 				98E8C1BE1C49E5EB00310091 /* LoginViewController.m in Sources */,

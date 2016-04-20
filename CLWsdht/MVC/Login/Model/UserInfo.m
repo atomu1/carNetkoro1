@@ -8,6 +8,7 @@
 
 #import "UserInfo.h"
 #import "MJYUtils.h"
+#import "SingleCase.h"
 
 @implementation UserInfo
 
@@ -33,6 +34,9 @@
     self.ProvincialName = [MJYUtils mjy_fuckNULL:dic[@"ProvincialName"]];
     self.Pwd            = [MJYUtils mjy_fuckNULL:dic[@"Pwd"]];
     self.Url            = [MJYUtils mjy_fuckNULL:dic[@"Url"]];
+    
+    SingleCase *singleCase = [SingleCase sharedSingleCase];
+    singleCase.str = self.user_Id;
     
     return self;
 }

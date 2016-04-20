@@ -6,6 +6,17 @@
 //  Copyright (c) 2015年 com.majinyu. All rights reserved.
 //
 
+/***
+ *     数据字典更新
+ ***/
+
+#define k_url_Dic_GetDicVer         @"Dic.asmx/GetDicVer"       // 获取字典最新版本号
+#define k_url_Dic_GetCarBrand       @"Dic.asmx/GetCarBrand"     // 获取品牌
+#define k_url_Dic_GetPartsUseFor    @"Dic.asmx/GetPartsUseFor"  // 配件分类
+#define k_url_Dic_GetColour         @"Dic.asmx/GetColour"       // 获取颜色
+#define k_url_Dic_GetPartsSrc       @"Dic.asmx/GetPartsSrc"     // 获取配件分类
+#define k_url_Dic_GetPurity         @"Dic.asmx/GetPurity"       // 获取成色分类
+#define k_url_Dic_GetProvincial     @"Dic.asmx/GetProvincial"   // 获取身份城市
 
 
 #define k_url_verify_code_register @"auth.asmx/VerifyCaptcha"  //验证验证码(注册)

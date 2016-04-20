@@ -242,7 +242,7 @@ UIImagePickerControllerDelegate
                                 };
     
     NSDictionary *jsonTabel = @{
-                                @"storeJson":[JYJSON JSONStringWithDictionaryOrArray:paramDict]
+                                @"usrJson":[JYJSON JSONStringWithDictionaryOrArray:paramDict]
                                 };
     
     [ApplicationDelegate.httpManager POST:urlStr parameters:jsonTabel progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -255,6 +255,9 @@ UIImagePickerControllerDelegate
             if ([status isEqualToString:@"1"]) {
                 //成功返回
                 [SVProgressHUD showSuccessWithStatus:@"用户信息修改成功"];
+                
+                [self.navigationController popToViewController:ApplicationDelegate.loginViewController animated:YES];
+                
             } else {
                 [SVProgressHUD showErrorWithStatus:jsonDic[@"Message"]];
             }
@@ -266,6 +269,7 @@ UIImagePickerControllerDelegate
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //请求异常
         [SVProgressHUD showErrorWithStatus:k_Error_Network];
+        
     }];
     
 }

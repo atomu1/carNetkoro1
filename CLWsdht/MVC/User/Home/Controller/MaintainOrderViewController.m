@@ -13,11 +13,13 @@
 #import "OrderTableViewCell.h"
 #import "BaseHeader.h"
 #import "MaintainModel.h"
+#import "SingleCase.h"
 
 @interface MaintainOrderViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *orderTableView;
 @property (nonatomic, strong) NSMutableArray *partlistArr;
+@property (nonatomic, copy) NSString *userId;
 
 @end
 
@@ -27,6 +29,9 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"我的维修订单"];
     _partlistArr = [[NSMutableArray alloc] initWithCapacity:0];
+    SingleCase *singleCase = [SingleCase sharedSingleCase];
+    _userId = singleCase.str;
+
     [self GetOrderListByNetwork];
     [self setUpView];
 }
@@ -77,7 +82,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"Usr.asmx/GetGarageOrdersList"];
     NSDictionary *paramDict = @{                                @"state":_orderState,
-                                @"usrId":@"a188c6fa-c962-4379-8910-da7d0c2fa9ca",
+                                @"usrId":_userId,
                                 @"garageId":@"",
                                 @"storeId":@"",
                                 @"start":[NSString stringWithFormat:@"%d",0],
@@ -210,7 +215,7 @@
     
     //品牌车型
     UILabel *carBrand = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 60, 15)];
-    [carBrand setBackgroundColor:[UIColor cyanColor]];
+    [carBrand setBackgroundColor:[UIColor clearColor]];
     [carBrand setText:@"品牌车型"];
     [carBrand setTextColor:[UIColor lightGrayColor]];
     [carBrand setTextAlignment:NSTextAlignmentCenter];

@@ -44,7 +44,15 @@
     _btnLogin.layer.cornerRadius = 5;
     _getPassWord.layer.cornerRadius = 5 ;
     _getPassWord.hidden = YES;
+    
+    ApplicationDelegate.loginViewController = self;
 }
+
+- (void)dealloc {
+    
+    ApplicationDelegate.loginViewController = nil;
+}
+
 
 #pragma mark *** 登陆按钮 ***
 - (IBAction)loginBtn:(UIButton *)sender
@@ -265,13 +273,21 @@
                 UserInfo *userInfo = [[UserInfo alloc] initWithDic:jsonDic[@"Data"]];
                 ApplicationDelegate.userInfo = userInfo;
                 ApplicationDelegate.isLogin = YES;
-                if ([[MJYUtils mjy_fuckNULL:ApplicationDelegate.userInfo.IdNumber] isEqualToString:@""]) {
-                    UserInforViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UserInforViewController"];
-                    [self.navigationController pushViewController:vc animated:YES];
-                } else {
-                    [self.navigationController popViewControllerAnimated:YES];
-                    [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
-                }
+                [self.navigationController popViewControllerAnimated:YES];
+                [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
+                
+                
+//                [[NSUserDefaults standardUserDefaults] setObject:_telTextField.text forKey:k_UD_username];
+//                UserInfo *userInfo = [[UserInfo alloc] initWithDic:jsonDic[@"Data"]];
+//                ApplicationDelegate.userInfo = userInfo;
+//                ApplicationDelegate.isLogin = YES;
+//                if ([[MJYUtils mjy_fuckNULL:ApplicationDelegate.userInfo.IdNumber] isEqualToString:@""]) {
+//                    UserInforViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UserInforViewController"];
+//                    [self.navigationController pushViewController:vc animated:YES];
+//                } else {
+//                    [self.navigationController popViewControllerAnimated:YES];
+//                    [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
+//                }
             } else {
                 [SVProgressHUD showErrorWithStatus:jsonDic[@"Message"]];
             }

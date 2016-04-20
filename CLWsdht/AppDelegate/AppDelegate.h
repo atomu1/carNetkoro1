@@ -34,6 +34,7 @@
  *  是否登录的状态
  */
 @property (assign, nonatomic) BOOL isLogin;
+@property (weak, nonatomic) UIViewController *loginViewController;
 
 /**
  *  用户信息

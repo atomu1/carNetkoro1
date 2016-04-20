@@ -494,6 +494,7 @@ forHTTPHeaderField:(NSString *)field
             switch (self.queryStringSerializationStyle) {
                 case AFHTTPRequestQueryStringDefaultStyle:
                     query = AFQueryStringFromParameters(parameters);
+                    NSLog(@"query = %@", query);
                     break;
             }
         }
