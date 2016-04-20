@@ -412,6 +412,14 @@
 		98C0258F1CBCC4970068ABE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98D478C21CC7348A00F09464 /* OrderModel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		98D478C21CC7348A00F09464 /* OrderModel */ = {
+			isa = PBXGroup;
+			children = (
 				98C025901CBCC4CF0068ABE6 /* OrderModel.h */,
 				98C025911CBCC4CF0068ABE6 /* OrderModel.m */,
 				98A3F4541CBDDF980059B739 /* GoodModel.h */,
@@ -419,7 +427,46 @@
 				98A3358F1CC4842100126016 /* MaintainModel.h */,
 				98A335901CC4842100126016 /* MaintainModel.m */,
 			);
-			name = Model;
+			name = OrderModel;
+			sourceTree = "<group>";
+		};
+		98D478C31CC734A700F09464 /* OrderView */ = {
+			isa = PBXGroup;
+			children = (
+				984FEA1D1CB60E1300D9C9C5 /* MyOrderViewController.xib */,
+				98D7892D1CB7962E003488D8 /* TheOrderViewController.xib */,
+				98C025871CBC85940068ABE6 /* OrderTableViewCell.xib */,
+				98C0258C1CBC87F80068ABE6 /* MaintainOrderViewController.xib */,
+				98A335871CC4746200126016 /* TardeCancelOrderViewController.xib */,
+				98A3358C1CC477E400126016 /* ReturnGoodsViewController.xib */,
+			);
+			name = OrderView;
+			sourceTree = "<group>";
+		};
+		98D478C41CC734BF00F09464 /* OrderVC */ = {
+			isa = PBXGroup;
+			children = (
+				984FEA1B1CB60E1300D9C9C5 /* MyOrderViewController.h */,
+				984FEA1C1CB60E1300D9C9C5 /* MyOrderViewController.m */,
+				98D7892B1CB7962E003488D8 /* TheOrderViewController.h */,
+				98D7892C1CB7962E003488D8 /* TheOrderViewController.m */,
+				98C025851CBC85940068ABE6 /* OrderTableViewCell.h */,
+				98C025861CBC85940068ABE6 /* OrderTableViewCell.m */,
+				98C0258A1CBC87F80068ABE6 /* MaintainOrderViewController.h */,
+				98C0258B1CBC87F80068ABE6 /* MaintainOrderViewController.m */,
+				98A335851CC4746200126016 /* TardeCancelOrderViewController.h */,
+				98A335861CC4746200126016 /* TardeCancelOrderViewController.m */,
+				98A3358A1CC477E400126016 /* ReturnGoodsViewController.h */,
+				98A3358B1CC477E400126016 /* ReturnGoodsViewController.m */,
+			);
+			name = OrderVC;
+			sourceTree = "<group>";
+		};
+		98D478C51CC736B000F09464 /* ReleaseOrderVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ReleaseOrderVC;
 			sourceTree = "<group>";
 		};
 		98E8C15C1C49E50800310091 = {
@@ -947,20 +994,10 @@
 		DF0991731C55F676001B6F2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				98D478C51CC736B000F09464 /* ReleaseOrderVC */,
+				98D478C41CC734BF00F09464 /* OrderVC */,
 				DF0991741C55F676001B6F2D /* HomeVC.h */,
 				DF0991751C55F676001B6F2D /* HomeVC.m */,
-				984FEA1B1CB60E1300D9C9C5 /* MyOrderViewController.h */,
-				984FEA1C1CB60E1300D9C9C5 /* MyOrderViewController.m */,
-				98D7892B1CB7962E003488D8 /* TheOrderViewController.h */,
-				98D7892C1CB7962E003488D8 /* TheOrderViewController.m */,
-				98C025851CBC85940068ABE6 /* OrderTableViewCell.h */,
-				98C025861CBC85940068ABE6 /* OrderTableViewCell.m */,
-				98C0258A1CBC87F80068ABE6 /* MaintainOrderViewController.h */,
-				98C0258B1CBC87F80068ABE6 /* MaintainOrderViewController.m */,
-				98A335851CC4746200126016 /* TardeCancelOrderViewController.h */,
-				98A335861CC4746200126016 /* TardeCancelOrderViewController.m */,
-				98A3358A1CC477E400126016 /* ReturnGoodsViewController.h */,
-				98A3358B1CC477E400126016 /* ReturnGoodsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -968,13 +1005,8 @@
 		DF0991761C55F676001B6F2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				98D478C31CC734A700F09464 /* OrderView */,
 				DF0991771C55F676001B6F2D /* Home.storyboard */,
-				984FEA1D1CB60E1300D9C9C5 /* MyOrderViewController.xib */,
-				98D7892D1CB7962E003488D8 /* TheOrderViewController.xib */,
-				98C025871CBC85940068ABE6 /* OrderTableViewCell.xib */,
-				98C0258C1CBC87F80068ABE6 /* MaintainOrderViewController.xib */,
-				98A335871CC4746200126016 /* TardeCancelOrderViewController.xib */,
-				98A3358C1CC477E400126016 /* ReturnGoodsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1386,7 +1418,7 @@
 				INFOPLIST_FILE = CLWsdht/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.com.cucsi.CLWsdht;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdht.CLWusr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1403,7 +1435,7 @@
 				INFOPLIST_FILE = CLWsdht/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.com.cucsi.CLWsdht;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdht.CLWusr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
