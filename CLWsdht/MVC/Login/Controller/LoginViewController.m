@@ -46,6 +46,20 @@
     _getPassWord.hidden = YES;
     
     ApplicationDelegate.loginViewController = self;
+    // 自动登录，检查登录信息存储是否存在
+    NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"k_UD_username"];
+    NSString *password = @"";
+    
+    if (nil != username) {
+        
+        password = [[NSUserDefaults standardUserDefaults] stringForKey:@"k_UD_password"];
+        
+        self.telTextField.text = username;
+        self.passWordTextField.text = password;
+        
+        // 如存在，则直接将用户名、密码填入文本框，模拟登录按钮，发起登录
+        [self loginBtn:nil];
+    }
 }
 
 - (void)dealloc {
@@ -269,7 +283,12 @@
             NSString *status = [NSString stringWithFormat:@"%@",jsonDic[@"Success"]];
             if ([status isEqualToString:@"1"]) {
                 //返回成功
+                // 登录成功，记录用户名密码，以备下次自动登录
                 [[NSUserDefaults standardUserDefaults] setObject:_telTextField.text forKey:k_UD_username];
+                [[NSUserDefaults standardUserDefaults] setObject:_passWordTextField.text forKey:k_UD_password];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                // 当前用户信息存入公共位置
                 UserInfo *userInfo = [[UserInfo alloc] initWithDic:jsonDic[@"Data"]];
                 ApplicationDelegate.userInfo = userInfo;
                 ApplicationDelegate.isLogin = YES;

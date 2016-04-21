@@ -16,5 +16,6 @@
 
 #define k_UD_isLogin            @"k_UD_isLogin" //是否登录
 #define k_UD_username           @"k_UD_username" //用户名
+#define k_UD_password           @"k_UD_password" //密码
 
 

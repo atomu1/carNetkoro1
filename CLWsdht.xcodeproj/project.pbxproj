@@ -10,6 +10,7 @@
 		2944D8651C848313005B6A95 /* PartsListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2944D8641C848313005B6A95 /* PartsListData.m */; };
 		2944D8681C84839C005B6A95 /* PartsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2944D8671C84839C005B6A95 /* PartsData.m */; };
 		2944D86B1C8484CB005B6A95 /* PartsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2944D86A1C8484CB005B6A95 /* PartsModal.m */; };
+		9825721A1CC869F100E63BE9 /* CeShiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982572191CC869F100E63BE9 /* CeShiViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9843A1581C9CECEF00FAE890 /* HmacSHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 9843A1571C9CECEF00FAE890 /* HmacSHA256.m */; settings = {ASSET_TAGS = (); }; };
 		984FEA1E1CB60E1300D9C9C5 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984FEA1C1CB60E1300D9C9C5 /* MyOrderViewController.m */; settings = {ASSET_TAGS = (); }; };
 		984FEA1F1CB60E1300D9C9C5 /* MyOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 984FEA1D1CB60E1300D9C9C5 /* MyOrderViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -23,6 +24,11 @@
 		98A3358E1CC477E400126016 /* ReturnGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A3358C1CC477E400126016 /* ReturnGoodsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		98A335911CC4842100126016 /* MaintainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A335901CC4842100126016 /* MaintainModel.m */; settings = {ASSET_TAGS = (); }; };
 		98A3F4561CBDDF980059B739 /* GoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A3F4551CBDDF980059B739 /* GoodModel.m */; settings = {ASSET_TAGS = (); }; };
+		98B4596F1CC76F7C002E4CB5 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B4596D1CC76F7C002E4CB5 /* jpush-ios-2.1.6.a */; settings = {ASSET_TAGS = (); }; };
+		98B459711CC7703A002E4CB5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B459701CC7703A002E4CB5 /* CFNetwork.framework */; };
+		98B459731CC77048002E4CB5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B459721CC77048002E4CB5 /* CoreFoundation.framework */; };
+		98B459751CC77053002E4CB5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B459741CC77053002E4CB5 /* CoreTelephony.framework */; };
+		98B459781CC7754B002E4CB5 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98B459771CC7754B002E4CB5 /* PushConfig.plist */; settings = {ASSET_TAGS = (); }; };
 		98C025881CBC85940068ABE6 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C025861CBC85940068ABE6 /* OrderTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		98C025891CBC85940068ABE6 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C025871CBC85940068ABE6 /* OrderTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		98C0258D1CBC87F80068ABE6 /* MaintainOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C0258B1CBC87F80068ABE6 /* MaintainOrderViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -137,6 +143,8 @@
 		2944D86A1C8484CB005B6A95 /* PartsModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsModal.m; sourceTree = "<group>"; };
 		39BB54A6DD09D6E8547EFEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		42BD9AE0019662919FB673B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		982572181CC869F100E63BE9 /* CeShiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeShiViewController.h; sourceTree = "<group>"; };
+		982572191CC869F100E63BE9 /* CeShiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeShiViewController.m; sourceTree = "<group>"; };
 		9843A1561C9CECEF00FAE890 /* HmacSHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmacSHA256.h; sourceTree = "<group>"; };
 		9843A1571C9CECEF00FAE890 /* HmacSHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmacSHA256.m; sourceTree = "<group>"; };
 		984FEA1B1CB60E1300D9C9C5 /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
@@ -158,6 +166,12 @@
 		98A335901CC4842100126016 /* MaintainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintainModel.m; sourceTree = "<group>"; };
 		98A3F4541CBDDF980059B739 /* GoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodModel.h; sourceTree = "<group>"; };
 		98A3F4551CBDDF980059B739 /* GoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodModel.m; sourceTree = "<group>"; };
+		98B4596D1CC76F7C002E4CB5 /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
+		98B4596E1CC76F7C002E4CB5 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		98B459701CC7703A002E4CB5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		98B459721CC77048002E4CB5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		98B459741CC77053002E4CB5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		98B459771CC7754B002E4CB5 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		98C025851CBC85940068ABE6 /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
 		98C025861CBC85940068ABE6 /* OrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
 		98C025871CBC85940068ABE6 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderTableViewCell.xib; path = ../Controller/OrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -361,6 +375,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B459751CC77053002E4CB5 /* CoreTelephony.framework in Frameworks */,
+				98B459731CC77048002E4CB5 /* CoreFoundation.framework in Frameworks */,
+				98B459711CC7703A002E4CB5 /* CFNetwork.framework in Frameworks */,
+				98B4596F1CC76F7C002E4CB5 /* jpush-ios-2.1.6.a in Frameworks */,
 				FA3F4566DF28AF138BA22EA5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +414,9 @@
 		3FCF6D4B94A64A00C27E4AC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98B459741CC77053002E4CB5 /* CoreTelephony.framework */,
+				98B459721CC77048002E4CB5 /* CoreFoundation.framework */,
+				98B459701CC7703A002E4CB5 /* CFNetwork.framework */,
 				FC8617B96CB9106E8C0DB41F /* libPods.a */,
 			);
 			name = Frameworks;
@@ -407,6 +428,15 @@
 				989626941CA3DB6B00B6F9EB /* per_yrz.png */,
 			);
 			name = image;
+			sourceTree = "<group>";
+		};
+		98B4596C1CC76F6E002E4CB5 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				98B4596D1CC76F7C002E4CB5 /* jpush-ios-2.1.6.a */,
+				98B4596E1CC76F7C002E4CB5 /* JPUSHService.h */,
+			);
+			name = JPush;
 			sourceTree = "<group>";
 		};
 		98C0258F1CBCC4970068ABE6 /* Model */ = {
@@ -465,6 +495,8 @@
 		98D478C51CC736B000F09464 /* ReleaseOrderVC */ = {
 			isa = PBXGroup;
 			children = (
+				982572181CC869F100E63BE9 /* CeShiViewController.h */,
+				982572191CC869F100E63BE9 /* CeShiViewController.m */,
 			);
 			name = ReleaseOrderVC;
 			sourceTree = "<group>";
@@ -509,6 +541,7 @@
 				98E8C17C1C49E50800310091 /* Info.plist */,
 				98E8C1741C49E50800310091 /* CLWsdht.xcdatamodeld */,
 				98E8C1691C49E50800310091 /* main.m */,
+				98B459771CC7754B002E4CB5 /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -906,6 +939,7 @@
 		C9A0D72E1C4A2E1E0028EEB8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				98B4596C1CC76F6E002E4CB5 /* JPush */,
 				C9622DCF1C4B40EE00AE849E /* DACircularProgress */,
 				C9622D6E1C4B40E700AE849E /* ZLPhotoLib */,
 				C9A0D72F1C4A2E2A0028EEB8 /* FSDropDownMenu */,
@@ -1100,6 +1134,11 @@
 					98E8C1641C49E50800310091 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = QNYGZ6JJ24;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1126,6 +1165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B459781CC7754B002E4CB5 /* PushConfig.plist in Resources */,
 				DF09918B1C55F6B7001B6F2D /* Shop.storyboard in Resources */,
 				DF0991951C561F11001B6F2D /* GoodsDetailsViewController.xib in Resources */,
 				DF0991871C55F6B7001B6F2D /* ChoseSparePartsViewController.xib in Resources */,
@@ -1276,6 +1316,7 @@
 				987D78BA1C9CF98D005A0A2C /* UserStoreModel.m in Sources */,
 				DF0991781C55F676001B6F2D /* HomeVC.m in Sources */,
 				DF0991881C55F6B7001B6F2D /* SearchBarViewController.m in Sources */,
+				9825721A1CC869F100E63BE9 /* CeShiViewController.m in Sources */,
 				C9622DCC1C4B40E700AE849E /* ZLPhotoPickerGroupTableViewCell.m in Sources */,
 				C9622DBF1C4B40E700AE849E /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				C9622DC11C4B40E700AE849E /* ZLPhotoPickerCustomToolBarView.m in Sources */,
@@ -1412,15 +1453,19 @@
 			baseConfigurationReference = 39BB54A6DD09D6E8547EFEDB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CLWsdht/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CLWsdht/Lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdht.CLWusr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c96e3fde-d2f1-42f7-a5f5-cbf1c02e488b";
 			};
 			name = Debug;
 		};
@@ -1429,15 +1474,19 @@
 			baseConfigurationReference = 42BD9AE0019662919FB673B7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CLWsdht/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CLWsdht/Lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdht.CLWusr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c96e3fde-d2f1-42f7-a5f5-cbf1c02e488b";
 			};
 			name = Release;
 		};
