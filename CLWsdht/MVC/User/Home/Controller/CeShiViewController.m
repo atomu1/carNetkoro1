@@ -40,7 +40,6 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"CompetitionOrder.asmx/AddCompetitionOrder"];
     NSString *uuid = [MJYUtils mjy_uuid];
-    NSLog(@"uuid = %@",uuid);
     NSDictionary *competitionOrderJson = @{
                                       @"CarModelId":@"c3eb4c54-9695-4e8a-9c9f-63270aa2bdff",
                                       @"UsrId":@"2864185e-bccd-4a83-9ffb-df637757e3c3",
@@ -79,7 +78,6 @@
                                                                    JSONObjectWithData:responseObject
                                                                    options:kNilOptions
                                                                    error:&error];
-                                          NSLog(@"________________%@",jsonDic);
                                           if (jsonDic[@"Success"]) {
                                               //成功
                                               NSLog(@"1111111111111%@",jsonDic);

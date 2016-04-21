@@ -30,6 +30,16 @@
 
 @implementation LoginViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+        self.ifAllowAutoLogin = true;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,20 +56,29 @@
     _getPassWord.hidden = YES;
     
     ApplicationDelegate.loginViewController = self;
-    // 自动登录，检查登录信息存储是否存在
-    NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"k_UD_username"];
-    NSString *password = @"";
-    
-    if (nil != username) {
+    if (_ifAllowAutoLogin) {
         
-        password = [[NSUserDefaults standardUserDefaults] stringForKey:@"k_UD_password"];
+        // 自动登录，检查登录信息存储是否存在
+        NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:k_UD_username];
+        NSString *password = @"";
         
-        self.telTextField.text = username;
-        self.passWordTextField.text = password;
-        
-        // 如存在，则直接将用户名、密码填入文本框，模拟登录按钮，发起登录
-        [self loginBtn:nil];
+        if (nil != username) {
+            
+            password = [[NSUserDefaults standardUserDefaults] stringForKey:k_UD_password];
+            
+            self.telTextField.text = username;
+            self.passWordTextField.text = password;
+            
+            // 如存在，则直接将用户名、密码填入文本框，模拟登录按钮，发起登录
+            [self loginBtn:nil];
+        }
     }
+    else {
+        
+            [[NSUserDefaults standardUserDefaults]  removeObjectForKey:k_UD_username];
+            [[NSUserDefaults standardUserDefaults]  removeObjectForKey:k_UD_password];
+            [[NSUserDefaults standardUserDefaults]  synchronize];
+        }
 }
 
 - (void)dealloc {

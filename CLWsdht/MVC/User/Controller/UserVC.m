@@ -84,6 +84,7 @@
     ApplicationDelegate.isLogin = NO ;
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
     LoginViewController *vc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    vc.ifAllowAutoLogin = false;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     self.hidesBottomBarWhenPushed = NO;
