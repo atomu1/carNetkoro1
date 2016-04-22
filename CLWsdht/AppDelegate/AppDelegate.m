@@ -14,6 +14,8 @@
 #import "AddressJSONModel.h"
 #import "MJYUtils.h"
 #import "BaseHeader.h"
+#import "JPUSHService.h"
+#import "CeShiViewController.h"
 
 @interface AppDelegate ()<
 CLLocationManagerDelegate
@@ -272,9 +274,70 @@ CLLocationManagerDelegate
     
     [self loaction];
     
+    //极光推送
+    if ([[UIDevice currentDevice].systemVersion floatValue]>=8.0){
+            //可以添加自定义categories
+            [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge|
+                                                              UIUserNotificationTypeSound|
+                                                              UIUserNotificationTypeAlert)categories:nil];
+    }
+    else {
+            //categories 必须为nil
+            [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge|
+                                                              UIRemoteNotificationTypeSound|
+                                                              UIRemoteNotificationTypeAlert)categories:nil];
+    }
     
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"PushConfig" ofType:@"plist"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    NSString *channel = [dict objectForKey:@"CHANNEL"];
+    NSString *appKey = [dict objectForKey:@"APP_KEY"];
+    //JAppKey : 是你在极光推送申请下来的appKey Jchannel : 可以直接设置默认值即可 Publish channel
+    [JPUSHService setupWithOption:launchOptions
+                           appKey:appKey
+                          channel:channel
+                 apsForProduction:YES];//如果是生产环境应该设置为YES
+    
+    //获取自定义消息里的内容
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
     
     return YES;
+}
+
+#pragma mark -- 获取自定义消息里的内容
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSDictionary * userInfo = [notification userInfo];
+    NSString *content = [userInfo valueForKey:@"content"];
+//    NSDictionary *extras = [userInfo valueForKey:@"extras"];
+//    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
+    NSLog(@"推送内容 = %@",content);
+    NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    NSLog(@"jsonDic = %@", jsonDic);
+}
+
+
+#pragma mark -- Jpush极光推送
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    // Required
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSString *alert = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+    if (application.applicationState == UIApplicationStateActive) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"推送消息"
+                                                            message:alert
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+    [application setApplicationIconBadgeNumber:0];
+    [JPUSHService handleRemoteNotification:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

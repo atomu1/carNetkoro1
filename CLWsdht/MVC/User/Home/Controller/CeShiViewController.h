@@ -10,4 +10,6 @@
 
 @interface CeShiViewController : UIViewController
 
+@property (nonatomic, strong) NSDictionary *jsonDict;
+
 @end
