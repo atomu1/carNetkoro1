@@ -16,6 +16,7 @@
 #import "BaseHeader.h"
 #import "JPUSHService.h"
 #import "CeShiViewController.h"
+#import "ReleaseMainOrderViewController.h"
 
 @interface AppDelegate ()<
 CLLocationManagerDelegate
@@ -318,7 +319,9 @@ CLLocationManagerDelegate
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
     NSLog(@"jsonDic = %@", jsonDic);
-} 
+    ReleaseMainOrderViewController *releaseOVC = [[ReleaseMainOrderViewController alloc] init];
+    releaseOVC.jpushDict = jsonDic;
+}
 
 
 #pragma mark -- Jpush极光推送

@@ -206,6 +206,7 @@
     UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backIetm;
     backIetm.title =@"返回";
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     [self setHidesBottomBarWhenPushed:YES];
     MyOrderViewController *myOrderVC = [[MyOrderViewController alloc] init];
     [self.navigationController pushViewController:myOrderVC animated:YES];
@@ -214,6 +215,10 @@
 
 #pragma mark -- 我的需求
 - (IBAction)myNeed:(UIButton *)sender {
+    UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
+    self.navigationItem.backBarButtonItem = backIetm;
+    backIetm.title =@"返回";
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     [self setHidesBottomBarWhenPushed:YES];
     CeShiViewController *ceShiVC = [[CeShiViewController alloc] init];
     [self.navigationController pushViewController:ceShiVC animated:YES];

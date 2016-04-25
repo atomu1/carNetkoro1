@@ -11,6 +11,7 @@
 #import "UserInforViewController.h"//修改用户信息
 #import "ZHQUtil.h"
 #import "UserInfo.h"//用户模型信息
+#import "JPUSHService.h"
 
 @interface LoginViewController ()
 {
@@ -219,7 +220,7 @@
         if (task.state == NSURLSessionTaskStateCompleted) {
             NSDictionary *jsonDic = [JYJSON dictionaryOrArrayWithJSONSData:responseObject];
             NSString *status = [NSString stringWithFormat:@"%@",jsonDic[@"Success"]];
-            if ([status isEqualToString:@"0"]) {
+            if ([status isEqualToString:@"1"]) {
                 //成功返回,获取用户信息
                 [self getUserInfoToNetwork];
             } else {
@@ -312,6 +313,10 @@
                 ApplicationDelegate.userInfo = userInfo;
                 ApplicationDelegate.isLogin = YES;
                 [self.navigationController popViewControllerAnimated:YES];
+                NSString *alias = [userInfo.user_Id stringByReplacingOccurrencesOfString:@"-" withString:@""];
+                [JPUSHService setTags:nil alias:alias fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
+                    NSLog(@"s = %@",iAlias);
+                }];
                 [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
                 
                 

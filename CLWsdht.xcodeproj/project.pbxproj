@@ -61,6 +61,10 @@
 		9843A1581C9CECEF00FAE890 /* HmacSHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 9843A1571C9CECEF00FAE890 /* HmacSHA256.m */; };
 		984FEA1E1CB60E1300D9C9C5 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984FEA1C1CB60E1300D9C9C5 /* MyOrderViewController.m */; };
 		984FEA1F1CB60E1300D9C9C5 /* MyOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 984FEA1D1CB60E1300D9C9C5 /* MyOrderViewController.xib */; };
+		987C82CB1CCE011700117E03 /* ReleaseMainOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987C82C91CCE011700117E03 /* ReleaseMainOrderViewController.m */; settings = {ASSET_TAGS = (); }; };
+		987C82CC1CCE011700117E03 /* ReleaseMainOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987C82CA1CCE011700117E03 /* ReleaseMainOrderViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		987C82D11CCE0D1400117E03 /* ReleaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 987C82CF1CCE0D1400117E03 /* ReleaseTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		987C82D21CCE0D1400117E03 /* ReleaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987C82D01CCE0D1400117E03 /* ReleaseTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		987D78B51C9CF847005A0A2C /* UsrStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 987D78B31C9CF847005A0A2C /* UsrStoreTableViewCell.m */; };
 		987D78B61C9CF847005A0A2C /* UsrStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987D78B41C9CF847005A0A2C /* UsrStoreTableViewCell.xib */; };
 		987D78BA1C9CF98D005A0A2C /* UserStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 987D78B91C9CF98D005A0A2C /* UserStoreModel.m */; };
@@ -272,6 +276,12 @@
 		984FEA1B1CB60E1300D9C9C5 /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
 		984FEA1C1CB60E1300D9C9C5 /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
 		984FEA1D1CB60E1300D9C9C5 /* MyOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyOrderViewController.xib; path = ../Controller/MyOrderViewController.xib; sourceTree = "<group>"; };
+		987C82C81CCE011700117E03 /* ReleaseMainOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseMainOrderViewController.h; sourceTree = "<group>"; };
+		987C82C91CCE011700117E03 /* ReleaseMainOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseMainOrderViewController.m; sourceTree = "<group>"; };
+		987C82CA1CCE011700117E03 /* ReleaseMainOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseMainOrderViewController.xib; sourceTree = "<group>"; };
+		987C82CE1CCE0D1400117E03 /* ReleaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseTableViewCell.h; sourceTree = "<group>"; };
+		987C82CF1CCE0D1400117E03 /* ReleaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseTableViewCell.m; sourceTree = "<group>"; };
+		987C82D01CCE0D1400117E03 /* ReleaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseTableViewCell.xib; sourceTree = "<group>"; };
 		987D78B21C9CF847005A0A2C /* UsrStoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsrStoreTableViewCell.h; sourceTree = "<group>"; };
 		987D78B31C9CF847005A0A2C /* UsrStoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsrStoreTableViewCell.m; sourceTree = "<group>"; };
 		987D78B41C9CF847005A0A2C /* UsrStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsrStoreTableViewCell.xib; sourceTree = "<group>"; };
@@ -773,6 +783,13 @@
 			path = RewriteCell;
 			sourceTree = "<group>";
 		};
+		987C82CD1CCE0C6200117E03 /* ReleaseOrderModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ReleaseOrderModel;
+			sourceTree = "<group>";
+		};
 		989626931CA3DB1C00B6F9EB /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -793,6 +810,7 @@
 		98C0258F1CBCC4970068ABE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				987C82CD1CCE0C6200117E03 /* ReleaseOrderModel */,
 				98D478C21CC7348A00F09464 /* OrderModel */,
 			);
 			name = Model;
@@ -848,6 +866,12 @@
 			children = (
 				982572181CC869F100E63BE9 /* CeShiViewController.h */,
 				982572191CC869F100E63BE9 /* CeShiViewController.m */,
+				987C82C81CCE011700117E03 /* ReleaseMainOrderViewController.h */,
+				987C82C91CCE011700117E03 /* ReleaseMainOrderViewController.m */,
+				987C82CA1CCE011700117E03 /* ReleaseMainOrderViewController.xib */,
+				987C82CE1CCE0D1400117E03 /* ReleaseTableViewCell.h */,
+				987C82CF1CCE0D1400117E03 /* ReleaseTableViewCell.m */,
+				987C82D01CCE0D1400117E03 /* ReleaseTableViewCell.xib */,
 			);
 			name = ReleaseOrderVC;
 			sourceTree = "<group>";
@@ -1506,6 +1530,7 @@
 				98E8C17B1C49E50800310091 /* LaunchScreen.storyboard in Resources */,
 				58F20A8F1CCB18EF008D513F /* SoyTableViewCell.xib in Resources */,
 				58F20A7C1CCB18EF008D513F /* DetailsBasicInfoCell.xib in Resources */,
+				987C82CC1CCE011700117E03 /* ReleaseMainOrderViewController.xib in Resources */,
 				98A335891CC4746200126016 /* TardeCancelOrderViewController.xib in Resources */,
 				98C025891CBC85940068ABE6 /* OrderTableViewCell.xib in Resources */,
 				58F20A6E1CCB18EF008D513F /* PartsUseFor.plist in Resources */,
@@ -1524,6 +1549,7 @@
 				98D7892F1CB7962E003488D8 /* TheOrderViewController.xib in Resources */,
 				DF0991D51C5B3223001B6F2D /* ChosePlaceViewController.xib in Resources */,
 				58F20A6D1CCB18EF008D513F /* PartsSrc.plist in Resources */,
+				987C82D21CCE0D1400117E03 /* ReleaseTableViewCell.xib in Resources */,
 				98E8C1C51C49E5EB00310091 /* Login.storyboard in Resources */,
 				58F20A671CCB18EF008D513F /* AddRequireInfoViewController.xib in Resources */,
 				98E8C1BA1C49E5EB00310091 /* LaunchScreen.storyboard in Resources */,
@@ -1664,6 +1690,7 @@
 				98E8C1F61C49E60900310091 /* UIView+Border.m in Sources */,
 				C9D829671C49F4130063EBC6 /* MyShopCell.m in Sources */,
 				C9622DBD1C4B40E700AE849E /* ZLPhotoPickerBrowserViewController.m in Sources */,
+				987C82D11CCE0D1400117E03 /* ReleaseTableViewCell.m in Sources */,
 				2944D86B1C8484CB005B6A95 /* PartsModal.m in Sources */,
 				58F20A7A1CCB18EF008D513F /* STPickerView.m in Sources */,
 				98E8C1C31C49E5EB00310091 /* UserInfo.m in Sources */,
@@ -1680,6 +1707,7 @@
 				58F20A8A1CCB18EF008D513F /* DetailsTableViewCell.m in Sources */,
 				98E8C1C41C49E5EB00310091 /* ZHQUtil.m in Sources */,
 				C9622DC61C4B40E700AE849E /* ZLPhotoPickerAssetsViewController.m in Sources */,
+				987C82CB1CCE011700117E03 /* ReleaseMainOrderViewController.m in Sources */,
 				987D78BA1C9CF98D005A0A2C /* UserStoreModel.m in Sources */,
 				58F20A771CCB18EF008D513F /* STConst.m in Sources */,
 				DF0991781C55F676001B6F2D /* HomeVC.m in Sources */,
@@ -1831,6 +1859,7 @@
 			baseConfigurationReference = 39BB54A6DD09D6E8547EFEDB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1852,6 +1881,7 @@
 			baseConfigurationReference = 42BD9AE0019662919FB673B7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

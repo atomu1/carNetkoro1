@@ -11,6 +11,7 @@
 #import "UIKit+AFNetworking.h"//里面有异步加载图片的方法
 #import "MJExtension.h"
 #import "BaseHeader.h"
+#import "ReleaseMainOrderViewController.h"
 
 
 
@@ -36,8 +37,15 @@
 }
 
 - (void)button:(UIButton *)btn{
+    [self setHidesBottomBarWhenPushed:YES];
+    UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
+    self.navigationItem.backBarButtonItem = backIetm;
+    backIetm.title =@"返回";
+    backIetm.tintColor = [UIColor orangeColor];
+
     [SVProgressHUD showWithStatus:k_Status_Load];
-    
+    ReleaseMainOrderViewController *releaseVC = [[ReleaseMainOrderViewController alloc] init];
+    [self.navigationController pushViewController:releaseVC animated:YES];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"CompetitionOrder.asmx/AddCompetitionOrder"];
     NSString *uuid = [MJYUtils mjy_uuid];
     NSDictionary *competitionOrderJson = @{
