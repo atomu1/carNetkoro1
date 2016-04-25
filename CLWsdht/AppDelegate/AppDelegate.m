@@ -318,7 +318,7 @@ CLLocationManagerDelegate
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
     NSLog(@"jsonDic = %@", jsonDic);
-}
+} 
 
 
 #pragma mark -- Jpush极光推送

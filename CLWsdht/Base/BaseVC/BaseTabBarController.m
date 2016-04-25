@@ -7,6 +7,7 @@
 //
 
 #import "BaseTabBarController.h"
+#import "RequireListViewController.h"
 
 @interface BaseTabBarController ()<
 UITabBarControllerDelegate
@@ -86,9 +87,9 @@ UITabBarControllerDelegate
     UIStoryboard *shopSB = [UIStoryboard storyboardWithName:@"Shop" bundle:nil];
     UINavigationController *shopCarNav = [shopSB instantiateViewControllerWithIdentifier:@"ShopNav"];
     
-    UIStoryboard *myNeedSB = [UIStoryboard storyboardWithName:@"MyNeed" bundle:nil];
-    UINavigationController *needNav = [myNeedSB instantiateViewControllerWithIdentifier:@"MyNeedNav"];
-    
+
+    RequireListViewController *requireList = [[RequireListViewController alloc] init];
+    UINavigationController *requireListNavi = [[UINavigationController alloc] initWithRootViewController:requireList];
     UIStoryboard *myShopSB = [UIStoryboard storyboardWithName:@"MyShop" bundle:nil];
     UINavigationController *orderNav = [myShopSB instantiateViewControllerWithIdentifier:@"MyShopNav"];
     
@@ -98,7 +99,7 @@ UITabBarControllerDelegate
     self.viewControllers = @[
                              homeNav,
                              shopCarNav,
-                             needNav,
+                             requireListNavi,
                              orderNav,
                              userNav
                              ];

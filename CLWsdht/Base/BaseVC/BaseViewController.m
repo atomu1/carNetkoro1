@@ -21,7 +21,8 @@
 {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+ 
     //设置HUD的样式
     [self setHUDStyle];
 }

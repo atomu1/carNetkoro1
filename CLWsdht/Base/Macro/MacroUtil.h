@@ -105,3 +105,16 @@ alpha:1.0]
 
 #define MONEYQRCODE      @"MONEYQRCODE"//二维码默认开始
 #define MONEYQRCODE_LENGTH      32//二维码默认开始
+
+
+
+/**
+  *           pubilc Size
+  */
+
+#define kScreen_Height      ([UIScreen mainScreen].bounds.size.height)
+#define kScreen_Width       ([UIScreen mainScreen].bounds.size.width)
+#define kScreen_Frame       (CGRectMake(0, 0 ,kScreen_Width,kScreen_Height))
+
+
+

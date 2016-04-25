@@ -17,7 +17,9 @@
 #define k_Notification_UpdateUserSeletedPhotos_MyShop  @"k_Notification_UpdateUserSeletedPhotos_MyShop"
 
 
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 
+#define kNotiCenter [NSNotificationCenter defaultCenter]
 
 
 

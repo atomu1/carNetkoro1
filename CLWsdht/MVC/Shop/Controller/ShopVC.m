@@ -90,8 +90,6 @@
     UIBarButtonItem * leftBarButtonItem= [[UIBarButtonItem alloc] initWithTitle:@"车自联" style:UIBarButtonItemStylePlain target:self action:nil];
     //设置
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
-
-    
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, 44)];
    // btn.backgroundColor=[UIColor redColor];
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -268,14 +266,14 @@
     self.navigationItem.titleView = titleView;
     
     for (NSInteger i=0; i<8; i++) {
-        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(5+((SCREEN_WIDTH-70)/4+20)*(i%4),10+(25+(SCREEN_WIDTH-70)/4)*(i/4), (SCREEN_WIDTH-70)/4, (SCREEN_WIDTH-70)/4)];
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(5+((SCREEN_WIDTH-70)/4+20)*(i%4),74+(25+(SCREEN_WIDTH-70)/4)*(i/4), (SCREEN_WIDTH-70)/4, (SCREEN_WIDTH-70)/4)];
         imageView.backgroundColor=[UIColor whiteColor];
         imageView.image=[UIImage imageNamed:imageArray[i]];
-        UIButton *button=[[UIButton alloc]initWithFrame:CGRectMake(5+((SCREEN_WIDTH-70)/4+20)*(i%4),10+(25+(SCREEN_WIDTH-70)/4)*(i/4), (SCREEN_WIDTH-70)/4, (SCREEN_WIDTH-70)/4)];
+        UIButton *button=[[UIButton alloc]initWithFrame:CGRectMake(5+((SCREEN_WIDTH-70)/4+20)*(i%4),74+(25+(SCREEN_WIDTH-70)/4)*(i/4), (SCREEN_WIDTH-70)/4, (SCREEN_WIDTH-70)/4)];
         button.tag=100+i;
         [button addTarget:self action:@selector(clickedBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
-        UILabel * label=[[UILabel alloc]initWithFrame:CGRectMake(5+((SCREEN_WIDTH-70)/4+20)*(i%4), (15+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH-70)/4)*(i/4), (SCREEN_WIDTH-70)/4, 20)];
+        UILabel * label=[[UILabel alloc]initWithFrame:CGRectMake(5+((SCREEN_WIDTH-70)/4+20)*(i%4), 64 + (15+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH-70)/4)*(i/4), (SCREEN_WIDTH-70)/4, 20)];
         label.backgroundColor=[UIColor whiteColor];
         label.text=lableArray[i];
         label.textColor=[UIColor lightGrayColor];
@@ -283,11 +281,11 @@
         label.font=[UIFont systemFontOfSize:13];
         [self.view addSubview:imageView];
         [self.view addSubview:label];
-        UILabel *hotLable=[[UILabel alloc]initWithFrame:CGRectMake(0, (25+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH-70)/4)+20,  SCREEN_WIDTH, 40)];
+        UILabel *hotLable=[[UILabel alloc]initWithFrame:CGRectMake(0, (25+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH-70)/4)+84,  SCREEN_WIDTH, 40)];
         hotLable.backgroundColor=[UIColor colorWithRed:246/255.0 green:247/255.0 blue:242/255.0 alpha:1];
         hotLable.text=@"  热门推荐";
         [self.view addSubview:hotLable];
-        userStoreTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, (25+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH-70)/4)+20+40, SCREEN_WIDTH, SCREEN_HEIGHT-((25+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH -70)/4)+20+40))];
+        userStoreTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, (25+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH-70)/4)+124, SCREEN_WIDTH, SCREEN_HEIGHT-((25+(SCREEN_WIDTH-70)/4)+(5+20+(SCREEN_WIDTH -70)/4)+20+40))];
         userStoreTableView.delegate=self;
         userStoreTableView.dataSource=self;
         [userStoreTableView registerNib:[UINib nibWithNibName:@"UsrStoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"userStoreCellIdentifer"];
@@ -299,6 +297,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 1;
 }
+
 //返回某个section中rows的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _modelArray.count;
