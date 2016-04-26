@@ -21,6 +21,7 @@
         OrderModel *orderModel = [[OrderModel alloc] init];
         orderModel.Price = [dic2 objectForKey:@"Price"];
         orderModel.StoreName = [dic2 objectForKey:@"StoreName"];
+        orderModel.Id = [dic2 objectForKey:@"Id"];
         orderModel.PartsList = [dic2 objectForKey:@"PartsLst"];
         orderModel.State = [dic2 objectForKey:@"State"];
         orderModel.GarageState = [dic2 objectForKey:@"GarageState"];

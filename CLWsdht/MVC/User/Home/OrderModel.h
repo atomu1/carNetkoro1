@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *StoreImg;
 @property (nonatomic, copy) NSString *StoreUrl;
 @property (nonatomic, copy) NSString *Price;
+@property (nonatomic, copy) NSString *Id;
 @property (nonatomic, copy) NSString *StoreName;//店铺名称
 @property (nonatomic, copy) NSString *PartsMobile;//来源
 @property (nonatomic, copy) NSString *StoreId;
